@@ -31,7 +31,7 @@ For Codex, the agent does not always keep looping by itself, so run it in a shel
 
 ```bash
 while true; do
-    codex exec --yolo "run program.md" 2>&1 | tee -a agent.log
+    codex exec --yolo "run program.md, target projects/<project-slug>/goal.md" 2>&1 | tee -a agent.log
     sleep 1
 done
 ```
