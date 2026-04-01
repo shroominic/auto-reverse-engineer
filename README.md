@@ -18,26 +18,28 @@
 ## Running it
 
 From the repo root, first run `bootstrap.md` to create the project workspace.
-
-For Claude, a single command is enough:
+In this example we use Codex, but the same can be done with Claude or any other agent harness.
 
 ```bash
-claude -p "execute bootstrap.md"
+codex "run bootstrap.md"
 ```
+
+It will ask you for needed information and create the project workspace.
 
 After bootstrap, start the main run from inside the created project folder:
-
-```bash
-claude -p "execute program.md"
-```
-
 For Codex, the agent does not always keep looping by itself, so run it in a shell loop from inside the project folder:
 
 ```bash
 while true; do
-    codex exec --yolo "execute program.md" 2>&1 | tee -a agent.log
+    codex exec --yolo "run program.md" 2>&1 | tee -a agent.log
     sleep 1
 done
+```
+
+Claude usually does not need a shell loop, so you can just run it once:
+
+```bash
+claude -p "run program.md"
 ```
 
 ## Project model
