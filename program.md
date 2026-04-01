@@ -6,7 +6,7 @@ This is the runtime prompt for an autonomous reverse-engineering project. You op
 
 Before taking action:
 
-1. Read `goal.md`, `project-context.md`, and `setup-report.md`.
+1. Read `goal.md` and `context.md`.
 2. Review `progress.md`, `attempts.md`, `attempts.tsv`, and `paths.md`.
 3. Read relevant `knowledge-base/` files.
 4. Inventory `artifacts/`, `derived/`, `scripts/`, and `human-inputs/`.

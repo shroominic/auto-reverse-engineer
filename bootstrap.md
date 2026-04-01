@@ -1,6 +1,6 @@
 # Bootstrap
 
-This is the initialization prompt for a new autonomous reverse-engineering project. Your goal is to create a clean, isolated workspace for a single target and prepare it for the runtime agent (`program.md`). Do not perform reverse engineering yet.
+This is the initialization prompt for a new autonomous reverse-engineering project. Your goal is to create a clean, seperated workspace for a single target and prepare it for the runtime agent (`program.md`). Do not perform reverse engineering yet.
 
 ## Goal & Deliverables
 
@@ -8,12 +8,11 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 
 - `program.md` (copied from root)
 - `goal.md`
-- `project-context.md`
+- `context.md`
 - `progress.md`
 - `attempts.md` & `attempts.tsv`
 - `paths.md`
 - `human-inputs/` (with `README.md`)
-- `setup-report.md`
 - `knowledge-base/` (with `index.md`, `facts.md`, `hypotheses.md`, `disproved.md`)
 - Directories: `artifacts/` (source evidence), `derived/` (outputs), `scripts/` (tooling), `logs/`
 
@@ -27,12 +26,11 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 ## File Initialization Rules
 
 - **`goal.md`**: Target name, exact end goal, success criteria, constraints, non-goals.
-- **`project-context.md`**: Target type, available artifacts, environment access, human capabilities, constraints, initial hypotheses.
+- **`context.md`**: Target type, available artifacts, environment access, human capabilities, constraints, initial hypotheses.
 - **`progress.md`**: Phase (bootstrap complete), baseline summary, known blockers, confidence level.
 - **`attempts.md`**: Empty section or note.
 - **`attempts.tsv`**: Header: `attempt_id\tstatus\tconfidence\tcategory\thypothesis\tsummary\tartifacts`
 - **`paths.md`**: Investigation paths organized by status (ready / in-progress / blocked / completed) with inline blocker tracking and trigger conditions.
 - **`human-inputs/README.md`**: Drop-zone instructions listing currently requested human-provided files and where to place them.
-- **`setup-report.md`**: Project path, provided/missing inputs, readiness state (`ready`, `partially blocked`, `blocked`), recommended first actions, launch instructions.
 
 *Note: Prefer `partially blocked` over `blocked` if any useful work can begin.*
