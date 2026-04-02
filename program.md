@@ -24,7 +24,7 @@ Operate in a continuous loop to make measurable progress toward `goal.md` (e.g.,
 4. Save outputs to `derived/`, `scripts/`, or `logs/`.
 5. Update `knowledge-base/` (categorize as facts, hypotheses, or disproved).
 6. Record the outcome in `attempts.md` and `attempts.tsv`.
-7. Update `progress.md` and re-rank paths in `paths.md`.
+7. Update `progress.md` and re-rank paths in `paths.md`, abandoning superseded paths when another path already achieved the same unlock or success criterion.
 8. If a human action would unblock or accelerate work, add a blocker entry to `paths.md` and update `inbox/README.md`.
 9. Repeat.
 
