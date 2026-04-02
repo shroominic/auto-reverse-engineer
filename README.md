@@ -11,7 +11,7 @@
 
 1. Run an agent with `bootstrap.md`.
 2. It creates a separate project folder for the target.
-3. It writes the initial files such as `goal.md`, `project-context.md`, `progress.md`, `attempts.md`, `paths.md`, `human-inputs/`, and `knowledge-base/`.
+3. It writes the initial files such as `goal.md`, `project-context.md`, `progress.md`, `attempts.md`, `paths.md`, `inbox/`, and `knowledge-base/`.
 4. It copies `program.md` into that project folder.
 5. Start a second agent in the new project folder with `program.md`.
 
@@ -52,7 +52,7 @@ The runtime agent should:
 - keep a structured knowledge base
 - track attempts and avoid repeating failed work
 - maintain `paths.md` with prioritized investigation paths, blockers, and trigger conditions
-- poll `human-inputs/` each loop to detect when the human provides requested resources
+- poll `inbox/` each loop to detect when the human provides requested resources
 - automatically unblock and pursue paths when trigger conditions are met
 - always work on the highest-priority ready path
 
