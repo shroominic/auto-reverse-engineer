@@ -18,21 +18,22 @@ Operate in a continuous loop to make measurable progress toward `goal.md` (e.g.,
 
 **The Loop:**
 
-1. Pick the highest-value ready path from `paths.md` (avoiding duplicates of failed attempts).
+1. Quickly recheck blockers, then pick the highest-value ready path from `paths.md`.
 2. State a clear hypothesis.
 3. Run a time-boxed experiment (default 15-30 mins) using the simplest, cheapest method.
 4. Save outputs to `derived/`, `scripts/`, or `logs/`.
 5. Update `knowledge-base/` (categorize as facts, hypotheses, or disproved).
 6. Record the outcome in `attempts.md` and `attempts.tsv`.
 7. Update `progress.md` and re-rank paths in `paths.md`, abandoning superseded paths when another path already achieved the same unlock or success criterion.
-8. If a human action would unblock or accelerate work, add a blocker entry to `paths.md` and update `inbox/README.md`.
-9. Repeat.
+8. Read the `inbox/README.md` and see if the human has provided any new resources.
+9. Queue human help in `paths.md` and `inbox/README.md` when it would unblock or accelerate work, but keep working other ready paths.
+10. Repeat.
 
 **Rules:**
 
 - **Do:** Spawn subagents for parallel tasks, create helper tooling, preserve original `artifacts/`.
-- **Do Not:** Falsify certainty, destructively modify source artifacts, repeat failed experiments without new evidence, or perform risky real-world actions without approval.
-- **Human Shortcuts:** If a human action (e.g., BLE capture, Frida attach) drastically reduces effort, add a blocker to `paths.md` and update `inbox/README.md`. Do not block autonomous work if alternative paths exist.
+- **Do Not:** Falsify certainty, destructively modify source artifacts, or perform risky real-world actions without approval.
+- **Retries:** Retry failed experiments only with stated new evidence, and prefer any cheaper test that answers the same question.
 
 ## Output Formatting
 
@@ -66,4 +67,4 @@ Organize findings by topic (`protocol/`, `code/`, `hardware/`, `crypto/`) and ev
 2. The human explicitly interrupts.
 3. A documented hard block is reached AND configuration permits stopping.
 
-If a single path is blocked, document it, queue human help, and switch paths. If out of ideas, re-analyze evidence, reorganize the knowledge base, or attack from a different layer (static, dynamic, network, crypto). Compound understanding over time.
+A blocked path is not a blocked run: document it, queue human help, and switch paths. If out of ideas, re-analyze evidence, reorganize the knowledge base, or attack from a different layer (static, dynamic, network, crypto). Compound understanding over time.
