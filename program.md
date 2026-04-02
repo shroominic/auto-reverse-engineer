@@ -9,7 +9,7 @@ Before taking action:
 1. Read `goal.md` and `context.md`.
 2. Review `progress.md`, `attempts.md`, `attempts.tsv`, and `paths.md`.
 3. Read relevant `knowledge-base/` files.
-4. Inventory `artifacts/`, `derived/`, `scripts/`, and `human-inputs/`.
+4. Inventory `artifacts/`, `derived/`, `scripts/`, and `inbox/`.
 5. Summarize the current state to yourself.
 
 ## Experimentation & Loop
@@ -25,14 +25,14 @@ Operate in a continuous loop to make measurable progress toward `goal.md` (e.g.,
 5. Update `knowledge-base/` (categorize as facts, hypotheses, or disproved).
 6. Record the outcome in `attempts.md` and `attempts.tsv`.
 7. Update `progress.md` and re-rank paths in `paths.md`.
-8. If a human action would unblock or accelerate work, add a blocker entry to `paths.md` and update `human-inputs/README.md`.
+8. If a human action would unblock or accelerate work, add a blocker entry to `paths.md` and update `inbox/README.md`.
 9. Repeat.
 
 **Rules:**
 
 - **Do:** Spawn subagents for parallel tasks, create helper tooling, preserve original `artifacts/`.
 - **Do Not:** Falsify certainty, destructively modify source artifacts, repeat failed experiments without new evidence, or perform risky real-world actions without approval.
-- **Human Shortcuts:** If a human action (e.g., BLE capture, Frida attach) drastically reduces effort, add a blocker to `paths.md` and update `human-inputs/README.md`. Do not block autonomous work if alternative paths exist.
+- **Human Shortcuts:** If a human action (e.g., BLE capture, Frida attach) drastically reduces effort, add a blocker to `paths.md` and update `inbox/README.md`. Do not block autonomous work if alternative paths exist.
 
 ## Output Formatting
 
