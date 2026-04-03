@@ -7,7 +7,7 @@ This is the initialization prompt for a new autonomous reverse-engineering proje
 Create a dedicated workspace at `projects/<project-slug>/` (slug based on target/date) containing:
 
 - `program.md` (copied from root)
-- `tactics.md` (copied from root)
+- `tactics/` (copied from root)
 - `goal.md`
 - `context.md`
 - `progress.md`
@@ -31,7 +31,7 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 - **`progress.md`**: Phase (bootstrap complete), baseline summary, known blockers, confidence level.
 - **`attempts.md`**: Empty section or note.
 - **`attempts.tsv`**: Header: `attempt_id\tstatus\tconfidence\tcategory\thypothesis\tsummary\tartifacts`
-- **`paths.md`**: Investigation paths organized by status (ready / in-progress / blocked / completed) with inline blocker tracking and trigger conditions. Seed initial paths from the relevant target-type playbook in `tactics.md`.
+- **`paths.md`**: Investigation paths organized by status (ready / in-progress / blocked / completed) with inline blocker tracking and trigger conditions. Seed initial paths from the relevant target-type playbook in `tactics/`.
 - **`inbox/README.md`**: Drop-zone instructions listing currently requested human-provided files and where to place them.
 
 *Note: Prefer `partially blocked` over `blocked` if any useful work can begin.*
