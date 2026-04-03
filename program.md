@@ -19,15 +19,16 @@ Operate in a continuous loop to make measurable progress toward `goal.md` (e.g.,
 **The Loop:**
 
 1. Quickly recheck blockers, then pick the highest-value ready path from `paths.md`.
-2. State a clear hypothesis.
-3. Run a time-boxed experiment (default 15-30 mins) using the simplest, cheapest method.
-4. Save outputs to `derived/`, `scripts/`, or `logs/`.
-5. Update `knowledge-base/` (categorize as facts, hypotheses, or disproved).
-6. Record the outcome in `attempts.md` and `attempts.tsv`.
-7. Update `progress.md` and re-rank paths in `paths.md`, abandoning superseded paths when another path already achieved the same unlock or success criterion.
-8. Read the `inbox/README.md` and see if the human has provided any new resources.
-9. Queue human help in `paths.md` and `inbox/README.md` when it would unblock or accelerate work, but keep working other ready paths.
-10. Repeat.
+2. **Conjecture check** (optional, every few iterations): Before committing to the next standard path, review `knowledge-base/facts.md` and ask — is there a non-obvious relationship between known facts that, if true, would make the remaining problem dramatically simpler? If a plausible conjecture surfaces, test it with the cheapest possible experiment before continuing. Most conjectures will fail (one short experiment lost); the ones that hold can skip entire analysis layers.
+3. State a clear hypothesis.
+4. Run a time-boxed experiment (default 15-30 mins) using the simplest, cheapest method.
+5. Save outputs to `derived/`, `scripts/`, or `logs/`.
+6. Update `knowledge-base/` (categorize as facts, hypotheses, or disproved).
+7. Record the outcome in `attempts.md` and `attempts.tsv`.
+8. Update `progress.md` and re-rank paths in `paths.md`, abandoning superseded paths when another path already achieved the same unlock or success criterion.
+9. Read the `inbox/README.md` and see if the human has provided any new resources.
+10. Queue human help in `paths.md` and `inbox/README.md` when it would unblock or accelerate work, but keep working other ready paths.
+11. Repeat.
 
 **Rules:**
 
