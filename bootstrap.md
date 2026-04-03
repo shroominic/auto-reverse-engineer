@@ -31,6 +31,6 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 - **`attempts.md`**: Empty section or note.
 - **`attempts.tsv`**: Header: `attempt_id\tstatus\tconfidence\tcategory\thypothesis\tsummary\tartifacts`
 - **`paths.md`**: Investigation paths organized by status (ready / in-progress / blocked / completed) with inline blocker tracking and trigger conditions.
-- **`inbox/README.md`**: Drop-zone instructions listing currently requested human-provided files and where to place them.
+- **`inbox/REQUESTS.md`**: List of resources the agent is requesting from the human and where to place them.
 
 *Note: Prefer `partially blocked` over `blocked` if any useful work can begin.*
