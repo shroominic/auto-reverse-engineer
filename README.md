@@ -7,7 +7,7 @@
 - `bootstrap.md`: creates a new project workspace, asks for the required context, and prepares the run
 - `program.md`: runs the actual reverse-engineering loop inside that project workspace
 - `verify.md`: periodic verification checkpoint — validates knowledge base consistency, progress evidence, and path rankings
-- `CLAUDE.md`: project instructions for Claude Code — teaches the agent about workspace conventions and how to use its native capabilities (subagents, tool use) within this framework
+- `agents.md`: agent instructions — workspace conventions, core rules, and tool guidance for any agent harness
 
 ## How it works
 
@@ -44,17 +44,19 @@ Claude usually does not need a shell loop, so you can just run it once:
 claude -p "run program.md"
 ```
 
-### Claude Code native mode
+### Agent-native mode
 
-When using [Claude Code](https://docs.anthropic.com/en/docs/claude-code), the `CLAUDE.md` file is loaded automatically as project context. Claude gets workspace-aware instructions, uses subagents for parallel investigation paths, and runs `verify.md` as a periodic self-check.
+Some agent harnesses (like Claude Code) automatically load project instruction files. Place `agents.md` in the project root so the agent starts with workspace awareness, core rules, and tool guidance.
 
-From inside the project folder:
+From inside the project folder, just start your agent:
 
 ```bash
 claude
+# or
+codex
 ```
 
-Claude reads `CLAUDE.md`, understands the workspace layout, and enters the experiment loop from `program.md`. No wrapper script needed — it runs continuously, spawns subagents for parallel paths, and self-verifies with `verify.md` every few iterations.
+The agent reads `agents.md`, understands the workspace layout, and enters the experiment loop from `program.md`.
 
 ## Project model
 

@@ -1,4 +1,4 @@
-# Auto Reverse Engineer — Claude Code Instructions
+# Auto Reverse Engineer — Agent Instructions
 
 You are operating inside an autonomous reverse-engineering framework. Your workspace is a self-contained project folder with structured state files that you must read, respect, and maintain.
 
@@ -35,33 +35,31 @@ projects/<slug>/
 5. **One hypothesis per experiment.** Don't test multiple things at once — isolate variables.
 6. **Cheapest test first.** Before running a complex analysis, check if a simpler method answers the same question.
 
-## Using Your Capabilities
+## Parallel Paths
 
-### Subagents for Parallel Paths
-
-When `paths.md` has multiple ready paths, spawn subagents to investigate in parallel:
+When `paths.md` has multiple ready paths, run them in parallel where your agent harness supports it:
 
 ```
-- Path A (ready, high priority): static analysis of binary → assign to subagent
-- Path B (ready, medium priority): network traffic analysis → assign to subagent
+- Path A (ready, high priority): static analysis of binary → run in parallel
+- Path B (ready, medium priority): network traffic analysis → run in parallel
 - Path C (blocked on human): needs firmware dump → skip, queue in inbox/
 ```
 
-Each subagent should:
+Each parallel task should:
 - Work on exactly one path
 - Write findings to `knowledge-base/` and `derived/`
 - Log its attempt in `attempts.md` / `attempts.tsv`
 - Update `paths.md` with results
 
-### Tool Use
+## Tool Use
 
-Use your native tools aggressively:
-- **Bash**: Run `strings`, `xxd`, `file`, `binwalk`, `objdump`, `readelf`, `nm`, `radare2`, `frida`, `adb`, and any other RE tool available in the environment
-- **Read/Write**: Maintain workspace files, parse binary data, manage the knowledge base
-- **Grep/Glob**: Search across artifacts and derived outputs for patterns, strings, signatures
+Use available tools aggressively for RE work:
+- **Shell**: `strings`, `xxd`, `file`, `binwalk`, `objdump`, `readelf`, `nm`, `radare2`, `frida`, `adb`, and any other RE tool in the environment
+- **File I/O**: Maintain workspace files, parse binary data, manage the knowledge base
+- **Search**: Grep across artifacts and derived outputs for patterns, strings, signatures
 - **Web**: Look up file format specs, protocol documentation, CVE databases, vendor references
 
-### Structured Thinking
+## Structured Thinking
 
 Before each experiment:
 1. State the hypothesis clearly
