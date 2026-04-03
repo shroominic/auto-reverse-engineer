@@ -18,16 +18,11 @@ Operate in a continuous loop to make measurable progress toward `goal.md` (e.g.,
 
 **The Loop:**
 
-1. Quickly recheck blockers, then pick the highest-value ready path from `paths.md`.
-2. State a clear hypothesis.
-3. Run a time-boxed experiment (default 15-30 mins) using the simplest, cheapest method.
-4. Save outputs to `derived/`, `scripts/`, or `logs/`.
-5. Update `knowledge-base/` (categorize as facts, hypotheses, or disproved).
-6. Record the outcome in `attempts.md` and `attempts.tsv`.
-7. Update `progress.md` and re-rank paths in `paths.md`, abandoning superseded paths when another path already achieved the same unlock or success criterion.
-8. Read the `inbox/README.md` and see if the human has provided any new resources.
-9. Queue human help in `paths.md` and `inbox/README.md` when it would unblock or accelerate work, but keep working other ready paths.
-10. Repeat.
+1. **Orient** — Recheck blockers, read `inbox/`, pick the highest-value ready path from `paths.md`.
+2. **Hypothesize** — State what you expect and why. Periodically check if known facts suggest a non-obvious shortcut that would collapse the remaining problem.
+3. **Experiment** — Run the cheapest time-boxed test (default 15-30 min).
+4. **Record** — Save outputs to `derived/`, `scripts/`, or `logs/`. Update `knowledge-base/` (facts, hypotheses, disproved). Log the attempt in `attempts.md` and `attempts.tsv`.
+5. **Re-rank** — Update `progress.md` and `paths.md`. Abandon superseded paths. Queue human help where it would unblock work. Repeat.
 
 **Rules:**
 
