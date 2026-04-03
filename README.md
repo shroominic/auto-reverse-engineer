@@ -6,13 +6,14 @@
 
 - `bootstrap.md`: creates a new project workspace, asks for the required context, and prepares the run
 - `program.md`: runs the actual reverse-engineering loop inside that project workspace
+- `tactics.md`: RE domain knowledge reference — target-type playbooks, analysis escalation ladder, pattern library, and anti-patterns
 
 ## How it works
 
 1. Run an agent with `bootstrap.md`.
 2. It creates a separate project folder for the target.
 3. It writes the initial files such as `goal.md`, `project-context.md`, `progress.md`, `attempts.md`, `paths.md`, `inbox/`, and `knowledge-base/`.
-4. It copies `program.md` into that project folder.
+4. It copies `program.md` and `tactics.md` into that project folder.
 5. Start a second agent in the new project folder with `program.md`.
 
 ## Running it
@@ -55,6 +56,7 @@ The runtime agent should:
 - poll `inbox/` each loop to detect when the human provides requested resources
 - automatically unblock and pursue paths when trigger conditions are met
 - always work on the highest-priority ready path
+- consult `tactics.md` when seeding paths or choosing between approaches
 
 ## Example
 
