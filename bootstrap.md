@@ -7,6 +7,7 @@ This is the initialization prompt for a new autonomous reverse-engineering proje
 Create a dedicated workspace at `projects/<project-slug>/` (slug based on target/date) containing:
 
 - `program.md` (copied from root)
+- `verify.md` (copied from root)
 - `goal.md`
 - `context.md`
 - `progress.md`
