@@ -62,4 +62,4 @@ Organize findings by topic (`protocol/`, `code/`, `hardware/`, `crypto/`) and ev
 2. The human explicitly interrupts.
 3. A documented hard block is reached AND configuration permits stopping.
 
-A blocked path is not a blocked run: document it, queue human help, and switch paths. If out of ideas, re-analyze evidence, reorganize the knowledge base, or attack from a different layer (static, dynamic, network, crypto). Compound understanding over time.
+A blocked path is not a blocked run: document it, queue human help, and switch paths. If out of ideas, re-analyze evidence, reorganize the knowledge base, or attack from a different layer (static, dynamic, network, crypto). Be creative — the best breakthroughs come from unexpected angles. Compound understanding over time.
