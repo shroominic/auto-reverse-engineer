@@ -13,8 +13,8 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 - `attempts.md` & `attempts.tsv`
 - `paths.md`
 - `inbox/` (with `README.md`)
-- `knowledge-base/` (with `index.md`, `facts.md`, `hypotheses.md`, `disproved.md`)
-- Directories: `artifacts/` (source evidence), `derived/` (outputs), `scripts/` (tooling), `logs/`
+- `wiki/` (empty scaffold — runtime agent fills it; see `program.md`)
+- Directories: `artifacts/` (source evidence, immutable), `derived/` (outputs), `scripts/` (tooling), `logs/`
 
 ## Bootstrap Workflow
 
@@ -32,5 +32,6 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 - **`attempts.tsv`**: Header: `attempt_id\tstatus\tconfidence\tcategory\thypothesis\tsummary\tartifacts`
 - **`paths.md`**: Investigation paths organized by status (ready / in-progress / blocked / completed) with inline blocker tracking and trigger conditions.
 - **`inbox/REQUESTS.md`**: List of resources the agent is requesting from the human and where to place them.
+- **`wiki/`**: empty `index.md`, `log.md`, `facts.md`, `hypotheses.md`, `disproved.md`, plus `entities/`, `concepts/`, `sources/`
 
 *Note: Prefer `partially blocked` over `blocked` if any useful work can begin.*
