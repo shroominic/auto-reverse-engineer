@@ -12,7 +12,7 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 - `progress.md`
 - `attempts.md` & `attempts.tsv`
 - `paths.md`
-- `inbox/` (with `README.md`)
+- `inbox/` (with `REQUESTS.md`)
 - `wiki/` (empty scaffold — runtime agent fills it; see `program.md`)
 - Directories: `artifacts/` (source evidence, immutable), `derived/` (outputs), `scripts/` (tooling), `logs/`
 
