@@ -21,7 +21,9 @@ Create a dedicated workspace at `projects/<project-slug>/` (slug based on target
 1. **Ask Required Info** (if unknown): Target name, exact goal, target type (e.g., APK, BLE, firmware), available artifacts, live interaction capability, safety/legal boundaries, and stop/continue behavior on hard blocks.
 2. **Suggest Optional Resources**: Propose 2-3 high-value, target-specific resources (e.g., clean BLE capture, decrypted APK, firmware dump) that would accelerate progress.
 3. **Initialize Workspace**: Create the directory structure and populate the markdown files with practical starter content based on the gathered context. Do not invent missing artifacts.
-4. **Handoff**: Output the workspace path, readiness state, critical missing resources, and exact instructions to launch the main run using `program.md`.
+4. **Launch**: Start the runtime in a looped tmux session:
+   `tmux new-session -d -s <slug> -c projects/<slug> 'while true; do <agent> "$(cat program.md)" 2>&1 | tee -a agent.log; sleep 1; done'`
+   `<agent>` = the harness (e.g. `claude --dangerously-skip-permissions -p`, `codex --yolo exec`).
 
 ## File Initialization Rules
 

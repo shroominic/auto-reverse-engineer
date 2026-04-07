@@ -11,36 +11,19 @@
 
 1. Run an agent with `bootstrap.md`.
 2. It creates a separate project folder for the target.
-3. It writes the initial files such as `goal.md`, `project-context.md`, `progress.md`, `attempts.md`, `paths.md`, `inbox/`, and `knowledge-base/`.
+3. It writes the initial files such as `goal.md`, `context.md`, `progress.md`, `attempts.md`, `paths.md`, `inbox/`, and `wiki/`.
 4. It copies `program.md` into that project folder.
-5. Start a second agent in the new project folder with `program.md`.
+5. It spawns the runtime agent in a new tmux session automatically.
 
 ## Running it
 
-From the repo root, first run `bootstrap.md` to create the project workspace.
-In this example we use Codex, but the same can be done with Claude or any other agent harness.
+From the repo root:
 
 ```bash
-codex "run bootstrap.md"
+claude "run bootstrap.md"
 ```
 
-It will ask you for needed information and create the project workspace.
-
-After bootstrap, start the main run from inside the created project folder:
-For Codex, the agent does not always keep looping by itself, so run it in a shell loop from inside the project folder:
-
-```bash
-while true; do
-    codex exec --yolo "run program.md, target projects/<project-slug>/goal.md" 2>&1 | tee -a agent.log
-    sleep 1
-done
-```
-
-Claude usually does not need a shell loop, so you can just run it once:
-
-```bash
-claude -p "run program.md"
-```
+Bootstrap asks for the target details, creates the workspace, and starts the runtime in a tmux session. Attach with `tmux attach -t <project-slug>`. Use whatever harness you like.
 
 ## Project model
 
@@ -49,7 +32,7 @@ Each target gets its own workspace. The framework repo stays generic. The projec
 The runtime agent should:
 
 - work toward the goal in `goal.md`
-- keep a structured knowledge base
+- build and maintain its own wiki at `wiki/` (interlinked markdown pages, compounding knowledge)
 - track attempts and avoid repeating failed work
 - maintain `paths.md` with prioritized investigation paths, blockers, and trigger conditions
 - poll `inbox/` each loop to detect when the human provides requested resources
