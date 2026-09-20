@@ -2,10 +2,13 @@
 
 `auto-reverse-engineer` is a prompt framework for running autonomous reverse-engineering projects in an existing coding-agent harness.
 
+**Status (2026-09):** the *job* (long-horizon, evidence-grounded protocol recovery) is still open. The *current three-file prompt pack* is not a releasable product. See [EVAL.md](EVAL.md) for the relevancy assessment, the recommended v1 shape, and how to benchmark against naive agents and tool-connected RE systems.
+
 ## Files
 
 - `bootstrap.md`: creates a new project workspace, asks for the required context, and prepares the run
 - `program.md`: runs the actual reverse-engineering loop inside that project workspace
+- `EVAL.md`: 2026-09 relevancy review, recommended release shape, and benchmark plan
 
 ## How it works
 
