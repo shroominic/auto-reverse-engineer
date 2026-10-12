@@ -1,53 +1,65 @@
 # auto-reverse-engineer
 
-`auto-reverse-engineer` is a prompt framework for running autonomous reverse-engineering projects in an existing coding-agent harness.
+Persistent reverse engineering in your existing agent harness. Recover a tested
+decoder or reconstruction, keeping evidence and unfinished paths between runs.
 
-## Files
+One skill and one Python helper. No Python dependencies. Python 3.11+ on Linux/macOS.
 
-- `bootstrap.md`: creates a new project workspace, asks for the required context, and prepares the run
-- `program.md`: runs the actual reverse-engineering loop inside that project workspace
+## Start
 
-## How it works
+Clone this repo, then ask your agent to use [SKILL.md](SKILL.md). You can also install it:
 
-1. Run an agent with `bootstrap.md`.
-2. It creates a separate project folder for the target.
-3. It writes the initial files such as `goal.md`, `context.md`, `progress.md`, `attempts.md`, `paths.md`, `inbox/`, and `wiki/`.
-4. It copies `program.md` into that project folder.
-5. It spawns the runtime agent in a new tmux session automatically.
-
-## Running it
-
-From the repo root:
-
-```bash
-claude "run bootstrap.md"
+```sh
+npx skills add shroominic/auto-reverse-engineer --skill auto-reverse-engineer
 ```
 
-Bootstrap asks for the target details, creates the workspace, and starts the runtime in a tmux session. Attach with `tmux attach -t <project-slug>`. Use whatever harness you like.
+Create a workspace with an explicit acceptance command:
 
-## Project model
+```sh
+python3 scripts/are.py init projects/sensor \
+  --goal "Recover the message format and build a decoder that passes saved frame tests" \
+  --verify "python3 scripts/check.py" --max-turns 20 --timeout 900
+```
 
-Each target gets its own workspace. The framework repo stays generic. The project folder holds the target-specific state, artifacts, notes, scripts, and logs.
+Put inputs in `projects/sensor/artifacts/`, fill in context and constraints in
+`goal.md`, and work in that folder with your agent. Build `scripts/check.py`
+against original/reference behavior; an explanation alone is not completion.
 
-The runtime agent should:
+For bounded unattended passes:
 
-- work toward the goal in `goal.md`
-- build and maintain its own wiki at `wiki/` (interlinked markdown pages, compounding knowledge)
-- track attempts and avoid repeating failed work
-- maintain `paths.md` with prioritized investigation paths, blockers, and trigger conditions
-- poll `inbox/` each loop to detect when the human provides requested resources
-- automatically unblock and pursue paths when trigger conditions are met
-- always work on the highest-priority ready path
+```sh
+python3 projects/sensor/are.py run projects/sensor -- claude -p
+```
 
-## Example
+The helper appends the skill/task prompt as the last argument to your chosen
+noninteractive agent command. It uses your harness's existing permissions.
+Each agent/check invocation has a deadline; turns persist across restarts.
+Logs and the result live in the workspace. Completion requires saved evidence
+and a passing checker. Failed checks return to investigation.
 
-A project could target a CGM app and sensor:
+If all paths are blocked, it stops in `waiting`. Supply requested inbox files
+and run the same command again. Verified completion never restarts the agent.
+`exhausted` exits 2; execution/integrity errors exit 1; interruption exits 130.
+Waiting and completion exit 0; read `run.json` to distinguish them.
 
-- inspect the APK
-- recover the BLE protocol
-- identify pairing and message parsing
-- reach raw glucose data from the device
+To check a project directly:
 
-## Purpose
+```sh
+python3 projects/sensor/are.py verify projects/sensor
+```
 
-The point of this repo is simple: make autonomous reverse-engineering runs repeatable, structured, and isolated per target.
+REA is optional. Use [REA's setup instructions](https://github.com/morluto/rea)
+and its matching skill/tools. Save evidence bundles before closing a session.
+This framework borrows its evidence discipline, explicit limits, and verified
+completion; it does not bundle analysis engines.
+
+The helper pins inputs and snapshots attempt evidence. Workspaces are directories,
+not security sandboxes; commands use your user permissions. It cleans child process
+groups, not deliberately detached processes. Existing prompt-only projects need
+a new workspace; copy inputs and carry forward findings after checking citations.
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+MIT. See [LICENSE](LICENSE).
